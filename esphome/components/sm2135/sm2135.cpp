@@ -1,6 +1,10 @@
 #include "sm2135.h"
 #include "esphome/core/log.h"
 
+
+// Tnx to the work of https://github.com/arendst (Tasmota) for making the initial version of the driver
+
+
 namespace esphome {
 namespace sm2135 {
 
