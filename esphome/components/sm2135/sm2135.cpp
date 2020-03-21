@@ -19,7 +19,7 @@ static const uint8_t SM2135_ADDR_C    =  0xC5;  // Cold
 static const uint8_t SM2135_ADDR_W    =  0xC6;  // Warm
 
 static const uint8_t SM2135_RGB       =  0x00;  // RGB channel
-static const uint8_t SM2135_CW        =  0x80;  // CW channel (Chip default)
+static const uint8_t SM2135_CW        =  0xC5 ; // 0x80 // CW channel (Chip default) 0xC5 seems to work, taken from datasheet example
 
 static const uint8_t SM2135_10MA      =  0x00;
 static const uint8_t SM2135_15MA      =  0x01;
@@ -55,7 +55,7 @@ void SM2135::loop() {
     return;
 
   uint8_t data[6];
-  if (this->update_channel_ == 4 || this->update_channel_ == 5) {
+  if (this->update_channel_ == 3 || this->update_channel_ == 4) {
     // No color so must be Cold/Warm
     data[0] = SM2135_ADDR_MC;
     data[1] = SM2135_CURRENT;
